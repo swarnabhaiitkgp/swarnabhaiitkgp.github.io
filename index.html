@@ -19,54 +19,7 @@
       </p>
     </main>
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const button = document.getElementById("button");
-        const result = document.getElementById("result");
-        const main = document.getElementsByTagName("main")[0];
-        let listening = false;
-        const SpeechRecognition =
-          window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (typeof SpeechRecognition !== "undefined") {
-          const recognition = new SpeechRecognition();
-
-          const stop = () => {
-            main.classList.remove("speaking");
-            recognition.stop();
-            button.textContent = "Start listening";
-          };
-
-          const start = () => {
-            main.classList.add("speaking");
-            recognition.start();
-            button.textContent = "Stop listening";
-          };
-
-          const onResult = event => {
-            result.innerHTML = "";
-            for (const res of event.results) {
-              const text = document.createTextNode(res[0].transcript);
-              const p = document.createElement("p");
-              if (res.isFinal) {
-                p.classList.add("final");
-              }
-              p.appendChild(text);
-              result.appendChild(p);
-            }
-          };
-          recognition.continuous = true;
-          recognition.interimResults = true;
-          recognition.addEventListener("result", onResult);
-          button.addEventListener("click", event => {
-            listening ? stop() : start();
-            listening = !listening;
-          });
-        } else {
-          button.remove();
-          const message = document.getElementById("message");
-          message.removeAttribute("hidden");
-          message.setAttribute("aria-hidden", "false");
-        }
-      });
+      eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('h.b("A",()=>{1 2=5.g("2");1 6=5.g("6");1 8=5.y("8")[0];z 3=k;1 9=h.9||h.B;i(x 9!=="C"){1 4=E 9();1 d=()=>{8.f.o("r");4.d();2.q="w 3"};1 e=()=>{8.f.l("r");4.e();2.q="v 3"};1 n=a=>{6.u="";D(1 c L a.O){1 m=5.N(c[0].Q);1 p=5.R("p");i(c.M){p.f.l("F")}p.j(m);6.j(p)}};4.H=s;4.G=s;4.b("6",n);2.b("I",a=>{3?d():e();3=!3})}J{2.o();1 7=5.g("7");7.K("t");7.S("P-t","k")}});',55,55,'|const|button|listening|recognition|document|result|message|main|SpeechRecognition|event|addEventListener|res|stop|start|classList|getElementById|window|if|appendChild|false|add|text|onResult|remove||textContent|speaking|true|hidden|innerHTML|Stop|Start|typeof|getElementsByTagName|let|DOMContentLoaded|webkitSpeechRecognition|undefined|for|new|final|interimResults|continuous|click|else|removeAttribute|of|isFinal|createTextNode|results|aria|transcript|createElement|setAttribute'.split('|'),0,{}))
     </script>
   </body>
 </html>
